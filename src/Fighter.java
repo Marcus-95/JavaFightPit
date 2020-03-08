@@ -1,14 +1,13 @@
 import java.util.*;
 
 public class Fighter {
-    private String name, winShout;
-    private int health;
-    private int maxHealth = 50;
-
+    private String name;
+    private String winShout;
+    private int health = 50;
+    
     public Fighter(String name, String winShout) {
         this.name = name;
         this.winShout = winShout;
-        health = maxHealth;
     }
 
     public String getName() {
@@ -33,7 +32,7 @@ public class Fighter {
     }
 
     public void resetHealth() {
-        health = maxHealth;
+        health = 50;
     }
 
     public String toString() {

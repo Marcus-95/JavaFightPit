@@ -1,49 +1,60 @@
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Tournament{
-    public static ArrayList<Fighter> fighterList = new ArrayList<>();
-    public static ArrayList<Match> matchList = new ArrayList<>();
-   
+    public static List<Fighter> fighterList;
+    public static List<Match> matchList;
+    static Scanner input = new Scanner(System.in);
+    Fighter winner;
+
     public void startMatch() {
         createFighters();
-        for(int i = 0; i < fighterList.size() / 2; i = i+2) {
-            Match match = new Match(fighterList.get(i), fighterList.get(i+1));
-            matchList.add(match);
-        }
+        matchList = new ArrayList<>();
     }
 
     public static void createFighters() {
-        fighterList.add(new Fighter("Marcus", " For Glory!"));
-        fighterList.add(new Fighter("Vicke", " AAAAAAAAHHHH!!"));
-        fighterList.add(new Fighter("Mikaela", " Kränk mig rå!"));
-        fighterList.add(new Fighter("Elliot", " Jag har slutat snusa, jag lovar!"));
-        fighterList.add(new Fighter("Valter", " Fan vad jag hungrig jag blev nu.."));
-        fighterList.add(new Fighter("Skaug", " *Chugs beer*"));
-        fighterList.add(new Fighter("Casamassa", " Stronzo!"));
-        fighterList.add(new Fighter("Emil", " KONG STRONG!"));
+        fighterList = Arrays.asList(new Fighter("Marcus", " For Glory!"),
+                new Fighter("Vicke", " AAAAAAAAHHHH!!"),
+                new Fighter("Mikaela", " Kränk mig rå!"),
+                new Fighter("Elliot", " Jag har slutat snusa, jag lovar!"),
+                new Fighter("Valter", " Fan vad jag hungrig jag blev nu.."),
+                new Fighter("Skaug", " *Chugs beer*"),
+                new Fighter("Casamassa", " Stronzo!"),
+                new Fighter("Emil", " KONG STRONG!"));
         Collections.shuffle(fighterList);
     }
 
     public void runTournament() {
-
-        String round1 = matchList.get(0).toString() + " " + matchList.get(1).toString();
-        String round2 = matchList.get(2).toString() + " " + matchList.get(3).toString();
-        String round3 = matchList.get(4).toString() + " " + matchList.get(5).toString();
-        String round4 = matchList.get(6).toString() + " " + matchList.get(7).toString();
-
         System.out.println("Welcome to the Fightpit where our competitors will fight to the death!");
-        System.out.println("Here are our competitors!");
-        System.out.println(round1);
-        System.out.println(round2);
-        System.out.println(round3);
-        System.out.println(round4);
-        System.out.println("\nPress enter to proceed");
-      
+        System.out.println("Here is the competitors for the match!\n");
+        String match1 = fighterList.get(0).toString() + " VS " + fighterList.get(1).toString();
+        String match2 = fighterList.get(2).toString() + " VS " + fighterList.get(3).toString();
+        String match3 = fighterList.get(4).toString() + " VS " + fighterList.get(5).toString();
+        String match4 = fighterList.get(6).toString() + " VS " + fighterList.get(7).toString();
+        System.out.println(match1);
+        System.out.println(match2);
+        System.out.println(match3);
+        System.out.println(match4);
 
-        for (int i = 0; i <= matchList.size()-1; i++) {
-            Match m = matchList.get(i);
-            System.out.println(m.getWinner());
+        while(true) {
+            for (int i = 0; i < fighterList.size() - 1; i = i + 2) {
+                Match match = new Match(fighterList.get(i), fighterList.get(i + 1));
+                matchList.add(match);
+            }
+
+            fighterList = new ArrayList<>();
+            for (int i = 0; i <= matchList.size() - 1; i++) {
+                Match m = matchList.get(i);
+                fighterList.add(m.getWinner());
+            }
+            Collections.shuffle(fighterList);
+            matchList = new ArrayList<>();
+
+            if(fighterList.size() == 1){
+                System.out.println();
+                System.out.println(fighterList.get(0) + " is the winner of the game!");
+                winner = fighterList.get(0);
+                break;
+            }
         }
     }
 }

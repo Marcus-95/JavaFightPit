@@ -1,14 +1,10 @@
 
 public class Main {
-    /*private static Fighter Fighter;
-    private static Fighter fighter1;
-    private static Fighter fighter2;
-*/
+
     public static void main(String[] args) {
         Tournament tournament = new Tournament();
-
+        //printa ut hela listan med fighters
         tournament.startMatch();
         tournament.runTournament();
-        
     }
 }

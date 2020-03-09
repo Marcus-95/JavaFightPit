@@ -36,6 +36,6 @@ public class Fighter {
     }
 
     public String toString() {
-        return  this.name  + this.winShout;
+        return  this.name;
     }
 }

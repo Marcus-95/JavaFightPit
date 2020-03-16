@@ -11,7 +11,7 @@ public class Tournament{
         matchList = new ArrayList<>();
     }
 
-    public static void createFighters() {
+    public void createFighters() {
         fighterList = Arrays.asList(new Fighter("Marcus", " For Glory!"),
                 new Fighter("Vicke", " AAAAAAAAHHHH!!"),
                 new Fighter("Mikaela", " Kränk mig rå!"),

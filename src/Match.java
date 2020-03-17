@@ -11,12 +11,11 @@ public class Match {
         System.out.println("\nNext match is: ");
         System.out.println(fighter1.toString() + " VS " + fighter2.getName());
         System.out.println("\nPress enter to fight!");
-        //System.out.println(Tournament.fighterList.toString());
         matchRounds();
         setWinner();
     }
 
-    public void matchRounds() {
+    private void matchRounds() {
         String roundMessage = " is the winner of the round. Press enter to start next round.";
         for (int i = 0; i <= 2; i++) {
             Combat combat = new Combat(fighter1, fighter2);

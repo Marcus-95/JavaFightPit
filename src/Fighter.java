@@ -3,7 +3,7 @@ import java.util.*;
 public class Fighter {
     private String name;
     private String winShout;
-    private int health = 50;
+    public int health = 50;
     
     public Fighter(String name, String winShout) {
         this.name = name;

@@ -1,13 +1,16 @@
 import java.util.*;
 
 public class Tournament{
-    public static List<Fighter> fighterList;
-    public static List<Match> matchList;
+    public List<Fighter> fighterList;
+    public List<Match> matchList;
     static Scanner input = new Scanner(System.in);
     Fighter winner;
 
-    public void startMatch() {
+    public Tournament(){
         createFighters();
+    }
+
+    public void startMatch() {
         matchList = new ArrayList<>();
     }
 
